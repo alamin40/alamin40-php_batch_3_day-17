@@ -27,11 +27,13 @@ class Blog
 
     public function index()
     {
+        $this->image = $this->imageUpload();
         $this->fileName = 'db.txt';
         $this->file = fopen('db.txt','a');
         $this->data = "$this->title, $this->authorName, $this->description";
         fwrite($this->file, $this->data);
         fclose($this->file);
+        return 'Data saved successfully';
     }
 
     protected function imageUpload()
@@ -39,6 +41,7 @@ class Blog
         $this->imageName = $_FILES['image']['name'];
         $this->directory = 'assets/img/upload/'.$this->imageName;
         move_uploaded_file($_FILES['image']['tmp_name'], $this->directory);
+        return $this->directory;
     }
 
 }

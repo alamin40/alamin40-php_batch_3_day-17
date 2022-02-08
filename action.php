@@ -15,7 +15,8 @@ if (isset($_GET['pages']))
 elseif (isset($_POST['btn']))
 {
     $blog = new Blog($_POST);
-    $blog->index();
+    $message = $blog->index();
+    include 'pages/home.php';
 }
 
 

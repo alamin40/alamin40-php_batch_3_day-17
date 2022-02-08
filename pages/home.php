@@ -9,6 +9,9 @@
                         <h4 class="text-center">Please input the fields carefully</h4>
                     </div>
                     <div class="card-body">
+                        <?php if (isset($message)) { ?>
+                            <h2 class="text-center text-success font-weight-bold"> <?php echo $message; ?> </h2>
+                        <?php } ?>
                         <form action="action.php" method="post" enctype="multipart/form-data">
                             <div class="form-group row">
                                 <label for="" class="col-md-4 col-form-label">Blog Title</label>
